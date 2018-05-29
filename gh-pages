@@ -1,0 +1,11 @@
+GH_PAGES_SOURCES = source
+
+git checkout gh-pages
+rm -rf build _sources _static
+git checkout master $(GH_PAGES_SOURCES)
+git reset HEAD
+make html
+shopt -s extglob
+rm -fr !(build)
+#git reset --hard origin/master
+mv -fv build/html/* ./

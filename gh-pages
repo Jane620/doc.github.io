@@ -6,6 +6,8 @@ make html
 shopt -s extglob
 rm -fr !(build)
 mv -fv build/html/* ./
+git add .
+git commit -m "make html"
 git push -f origin master:gh-pages
 rm -rf *
 git reset --hard origin/master

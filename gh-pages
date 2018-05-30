@@ -1,10 +1,14 @@
-git checkout gh-pages
-rm -rf build _sources _static
+
+#先将本地的内容推送到master后切换gh-pages 分支并且构建
+git checkout master
+git add .
+git commit -m "提交全部"
+git push
 git checkout master
 git reset HEAD
 make html
 shopt -s extglob
-rm -fr !(build)
+rm -fr !(build|gh-pages)
 mv -fv build/html/* ./
 git add .
 git commit -m "make html"
@@ -12,5 +16,3 @@ git push -f origin master:gh-pages
 rm -rf *
 git reset --hard origin/master
 git fetch
-
-

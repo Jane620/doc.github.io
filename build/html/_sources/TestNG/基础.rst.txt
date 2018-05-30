@@ -92,11 +92,9 @@ TestNG异常
 默认@Test即为True
 
 ::
-
+  
   @Test(enable=false)
 
 
 超时测试
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-通过@Test(timeout = 5000)
-::

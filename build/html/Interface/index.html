@@ -80,7 +80,8 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../Python/index.html">1. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Jenkins/index.html">2. Jenkins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../RST/index.html">3. reStructuredText基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docker/index.html">3. docker相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RST/index.html">4. reStructuredText基础</a></li>
 </ul>
 
             
@@ -147,6 +148,44 @@
             
   <div class="section" id="id1">
 <h1>接口测试相关<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="p">{</span>
+    <span class="n">stage</span><span class="p">(</span><span class="s1">&#39;get clone&#39;</span><span class="p">){</span>
+        <span class="o">//</span><span class="n">check</span> <span class="n">CODE</span>
+       <span class="n">git</span> <span class="n">credentialsId</span><span class="p">:</span> <span class="s1">&#39;a680ff2c-ea6a-430a-8aff-9c2f1dcd375c&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="s1">&#39;git@gitlab.yst.com.cn:firefox/NFSpring_service.git&#39;</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span><span class="n">定义mvn环境</span>
+    <span class="k">def</span> <span class="nf">mvnHome</span> <span class="o">=</span> <span class="n">tool</span> <span class="s2">&quot;M3&quot;</span>
+    <span class="k">def</span> <span class="nf">project_name</span> <span class="o">=</span> <span class="s2">&quot;NFSpring_service&quot;</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">PATH</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="si">{mvnHome}</span><span class="s2">/bin:$</span><span class="si">{env.PATH}</span><span class="s2">&quot;</span>
+
+    <span class="n">stage</span><span class="p">(</span><span class="s1">&#39;test:unit&#39;</span><span class="p">){</span>
+        <span class="o">//</span><span class="n">mvn</span> <span class="n">测试测试测试</span>
+        <span class="n">echo</span> <span class="s2">&quot;do nothing&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">stage</span><span class="p">(</span><span class="s1">&#39;test：functional&#39;</span><span class="p">){</span>
+        <span class="o">//</span><span class="n">mvn</span> <span class="n">测试</span>
+        <span class="n">echo</span> <span class="s2">&quot;do nothing&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">stage</span><span class="p">(</span><span class="s1">&#39;mvn build&#39;</span><span class="p">){</span>
+        <span class="o">//</span><span class="n">mvn构建</span>
+        <span class="n">sh</span> <span class="s2">&quot;mvn org.jacoco:jacoco-maven-plugin:0.7.4.201502262128:prepare-agent clean install -Dmaven.test.failure.ignore=true&quot;</span>
+        <span class="n">sh</span> <span class="s2">&quot;mvn sonar:sonar -Dsonar.host.url=http://10.213.3.181:9000/&quot;</span>
+        <span class="n">sh</span> <span class="s2">&quot;python3 /home/jenkins/.python/sonar.py $project_name&quot;</span>
+    <span class="p">}</span>
+
+    <span class="n">stage</span><span class="p">(</span><span class="s1">&#39;deploy&#39;</span><span class="p">){</span>
+        <span class="o">//</span><span class="n">执行部署脚本</span>
+        <span class="n">echo</span> <span class="s2">&quot;deploy ......&quot;</span>
+        <span class="n">sh</span> <span class="s2">&quot;/usr/bin/sshpass  -p &#39;admin&#39; ssh  -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no admin@10.213.2.56 -C &#39;/home/admin/bin/webservices_ctl_tomcat_nginx.sh release NFSpring_service_test_lw/target/NFSpring_service.war `date +&#39;%Y-%m-</span><span class="si">%d</span><span class="s2">&#39;` `date +&#39;</span><span class="si">%s</span><span class="s2">&#39;`&#39;&quot;</span>
+        <span class="n">sh</span> <span class="s2">&quot;/usr/bin/sshpass  -p &#39;admin&#39; ssh  -oUserKnownHostsFile=/dev/null -oStrictHostKeyChecking=no admin@10.213.3.58 -C &#39;/home/admin/bin/webservices_ctl_tomcat_nginx.sh release NFSpring_service_test_lw/target/NFSpring_service.war `date +&#39;%Y-%m-</span><span class="si">%d</span><span class="s2">&#39;` `date +&#39;</span><span class="si">%s</span><span class="s2">&#39;`&#39;&quot;</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 
 

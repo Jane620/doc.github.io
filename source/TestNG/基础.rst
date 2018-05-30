@@ -47,26 +47,28 @@ TestNG套件
 
 ::
 
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   <suite name="TestAll">
-      <!-- @BeforeTest -->
-      <test name="case1">
-          <classes>
-              <class name="com.example.demo.testng.config.TestDBConnection" />
-              <class name="com.example.demo.testng.config.DBConfig" />
-          </classes>
-      </test>
-      <!-- @AfterTest -->
-      <!-- @BeforeTest -->
-      <test name="case2">
-          <classes>
-              <class name="com.example.demo.testng.config.TestDBConnection" />
-              <class name="com.example.demo.testng.config.DBConfig" />
-          </classes>
-      </test>
-      <!-- @AfterTest -->
-    </suite>
+    <!-- Run test class -->
+    <test name="final">
+        <classes>
+            <class name="com.yiibai.TestSelenium" />
+            <class name="com.yiibai.TestGroup" />
+        </classes>
+    </test>
+    <!-- Run test method on group "selenium" only -->
+    <test name="selenium">
+        <groups>
+            <run>
+                <include name="selenium-test" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.yiibai.TestSelenium" />
+            <class name="com.yiibai.TestGroup" />
+        </classes>
+    </test>
+  </suite>
+
 
 TestNG异常
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,5 +100,35 @@ TestNG异常
 
 超时测试
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-通过@Test(timeout = 5000)
+通过@Test(timeOut = 5000)
 ::
+
+  public class TimeOut {
+
+    @Test(timeOut = 5000)
+    public void timeOut1() throws InterruptedException{
+        Thread.sleep(4000);
+    }
+
+    @Test(timeOut = 5000)
+    public void timeOut2() throws InterruptedException{
+        Thread.sleep(6000);
+    }
+
+  }
+
+分组测试
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+方法分组和类分组
+
+* 通过注解@Test(groups="") ,@BeforeGroups ,@AfterGroups,@Test(dependsOnGroups ={"",""})进行测试用例的方法分组
+* 通过在类上添加注解@Test(groups="")，以及创建testng.xml ,定义classes则运行类，groups则运行对应类中的分组
+
+.. warning::
+  @Test(groups="")，通过groups = xx进行测试用例的分组
+  @BeforeGroups 和 @AfterGroups 可以在整个分组前进行执行
+  @Test(dependsOnGroups ={"",""}) 则依赖其他groups执行完成后才执行
+
+
+套件测试
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

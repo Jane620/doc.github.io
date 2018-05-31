@@ -169,10 +169,46 @@ TestNG异常
             <class name="testng.suite.TestDatabases"/>
         </classes>
     </test>
-    
+
   只执行某个包下的所有测试类
   <test name="All">
         <packages>
             <package name="testng.demo.*"/>
         </packages>
     </test>
+
+
+参数化测试
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+目前TestNG有两种方式：@Parameters 和 @DataProvider
+
+
+@Parameters通过读取xml中配置的参数传入测试方法
+::
+
+  配置参数
+  <test name="example1">
+        <parameter name="dbconfig" value="db.properties" />
+        <parameter name="poolsize" value="10" />
+        <classes>
+            <class name="testng.args.TestParameterXML" />
+        </classes>
+    </test>
+  方法作为入参传入
+  @Test
+  @Parameters({"dbconfig","poolsize"})
+  public void xxx()
+
+@DataProvider定义提供的数据源，在测试引入数据源
+::
+
+  引入数据源
+  @DataProvider(name = "dateprovider")
+  public Object[][] provideData(){
+        Object[][] params = new Object[][]{{10,20},{30,40},{50,60}};
+        return params;
+    }
+
+  @Test(dataProvider = "dateprovider")
+  public void dataProvideTest(int number, int expect){}

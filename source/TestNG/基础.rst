@@ -132,3 +132,44 @@ TestNG异常
 
 套件测试
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+通过定义多个testng.xml来规划不同的执行目的
+
+::
+
+  常见的:
+  <!--order测试类-->
+    <test name="order">
+        <classes>
+            <class name="testng.suite.TestConfig" />
+            <class name="testng.suite.TestOrder" />
+        </classes>
+    </test>
+  只执行特定类的某个函数的
+  <test name="order">
+        <classes>
+            <class name="testng.suite.TestOrder" />
+                <methods>
+                    <include name="testUpdateOrder" />
+                    <exclude name="testFindOrder" />
+                </methods>
+        </classes>
+    </test>
+  只执行类特定group
+  <test name="order">
+        <groups>
+            <run>
+                <exclude name="brokenTests" />
+                <include name="db-nosql" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="testng.suite.TestDatabases"/>
+        </classes>
+    </test>
+  只执行某个包下的所有测试类
+  <test name="All">
+        <packages>
+            <package name="testng.demo.*"/>
+        </packages>
+    </test>

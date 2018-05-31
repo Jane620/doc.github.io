@@ -184,26 +184,27 @@
 <div class="section" id="id4">
 <h2>TestNG套件<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>创建一个testng.xml配置文件</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot; &gt;
-&lt;suite name=&quot;TestAll&quot;&gt;
-    &lt;!-- @BeforeTest --&gt;
-    &lt;test name=&quot;case1&quot;&gt;
-        &lt;classes&gt;
-            &lt;class name=&quot;com.example.demo.testng.config.TestDBConnection&quot; /&gt;
-            &lt;class name=&quot;com.example.demo.testng.config.DBConfig&quot; /&gt;
-        &lt;/classes&gt;
-    &lt;/test&gt;
-    &lt;!-- @AfterTest --&gt;
-    &lt;!-- @BeforeTest --&gt;
-    &lt;test name=&quot;case2&quot;&gt;
-        &lt;classes&gt;
-            &lt;class name=&quot;com.example.demo.testng.config.TestDBConnection&quot; /&gt;
-            &lt;class name=&quot;com.example.demo.testng.config.DBConfig&quot; /&gt;
-        &lt;/classes&gt;
-    &lt;/test&gt;
-    &lt;!-- @AfterTest --&gt;
-  &lt;/suite&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;suite name=&quot;TestAll&quot;&gt;
+  &lt;!-- Run test class --&gt;
+  &lt;test name=&quot;final&quot;&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;com.yiibai.TestSelenium&quot; /&gt;
+          &lt;class name=&quot;com.yiibai.TestGroup&quot; /&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+  &lt;!-- Run test method on group &quot;selenium&quot; only --&gt;
+  &lt;test name=&quot;selenium&quot;&gt;
+      &lt;groups&gt;
+          &lt;run&gt;
+              &lt;include name=&quot;selenium-test&quot; /&gt;
+          &lt;/run&gt;
+      &lt;/groups&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;com.yiibai.TestSelenium&quot; /&gt;
+          &lt;class name=&quot;com.yiibai.TestGroup&quot; /&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
 </pre></div>
 </div>
 </div>
@@ -232,6 +233,39 @@
 </div>
 <div class="section" id="id7">
 <h2>超时测试<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>通过&#64;Test(timeOut = 5000)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">TimeOut</span> <span class="p">{</span>
+
+  <span class="nd">@Test</span><span class="p">(</span><span class="n">timeOut</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">)</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">timeOut1</span><span class="p">()</span> <span class="n">throws</span> <span class="n">InterruptedException</span><span class="p">{</span>
+      <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">4000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Test</span><span class="p">(</span><span class="n">timeOut</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">)</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">timeOut2</span><span class="p">()</span> <span class="n">throws</span> <span class="n">InterruptedException</span><span class="p">{</span>
+      <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">6000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>分组测试<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>方法分组和类分组</p>
+<ul class="simple">
+<li>通过注解&#64;Test(groups=”“) ,&#64;BeforeGroups ,&#64;AfterGroups,&#64;Test(dependsOnGroups ={“”,”“})进行测试用例的方法分组</li>
+<li>通过在类上添加注解&#64;Test(groups=”“)，以及创建testng.xml ,定义classes则运行类，groups则运行对应类中的分组</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">&#64;Test(groups=”“)，通过groups = xx进行测试用例的分组
+&#64;BeforeGroups 和 &#64;AfterGroups 可以在整个分组前进行执行
+&#64;Test(dependsOnGroups ={“”,”“}) 则依赖其他groups执行完成后才执行</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>套件测试<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

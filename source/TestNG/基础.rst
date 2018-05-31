@@ -212,3 +212,50 @@ TestNG异常
 
   @Test(dataProvider = "dateprovider")
   public void dataProvideTest(int number, int expect){}
+
+@DataProvider还能根据函数来提供不同的数据源
+::
+
+  根据不同函数名引入不同数据源
+  @DataProvider(name = "dateprovider")
+  public Object[][] provideData(Method method){
+        Object[][] params = null;
+        String methodName = Method.getName();
+        switch (MethodName){
+            case "test1":
+                result = new Object[][]{{1,1},{100,100}};
+                break;
+            case "test2":
+                result = new Object[][]{{"1","1"},{"2","2"}};
+                break;
+        }
+        return result;
+    }
+
+    @Test(dataProvider = "dataProvideMethod")
+      public void test1(int i, int expect){
+          Assert.assertEquals(i,expect);
+      }
+
+    @Test(dataProvider = "dataProvideMethod")
+      public void test2(String str, String expect){
+          Assert.assertEquals(str,expect);
+      }
+
+@DataProvider还能根据配置参数中group来区分数据源
+::
+
+  @DataProvider(name = "dataProvideByGroup")
+  public Object[][] dataProvide(ITestContext iTestContext){
+    ......
+    //获取的即为xml中include属性
+    for (String group:iTestContext.getIncludedGroups()){}
+  }
+
+  TestNG.xml配置
+  <groups>
+            <run>
+                <include name="groupA"/>
+                <include name="groupB"/>
+            </run>
+  </groups>

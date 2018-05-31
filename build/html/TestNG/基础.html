@@ -81,7 +81,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Python/index.html">1. Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Jenkins/index.html">2. Jenkins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Docker/index.html">3. docker相关</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../RST/index.html">4. reStructuredText基础</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">4. testng测试相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RST/index.html">5. reStructuredText基础</a></li>
 </ul>
 
             
@@ -266,6 +267,46 @@
 </div>
 <div class="section" id="id9">
 <h2>套件测试<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>通过定义多个testng.xml来规划不同的执行目的</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>常见的:
+&lt;!--order测试类--&gt;
+  &lt;test name=&quot;order&quot;&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;testng.suite.TestConfig&quot; /&gt;
+          &lt;class name=&quot;testng.suite.TestOrder&quot; /&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+只执行特定类的某个函数的
+&lt;test name=&quot;order&quot;&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;testng.suite.TestOrder&quot; /&gt;
+              &lt;methods&gt;
+                  &lt;include name=&quot;testUpdateOrder&quot; /&gt;
+                  &lt;exclude name=&quot;testFindOrder&quot; /&gt;
+              &lt;/methods&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+只执行类特定group
+&lt;test name=&quot;order&quot;&gt;
+      &lt;groups&gt;
+          &lt;run&gt;
+              &lt;exclude name=&quot;brokenTests&quot; /&gt;
+              &lt;include name=&quot;db-nosql&quot; /&gt;
+          &lt;/run&gt;
+      &lt;/groups&gt;
+
+      &lt;classes&gt;
+          &lt;class name=&quot;testng.suite.TestDatabases&quot;/&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+只执行某个包下的所有测试类
+&lt;test name=&quot;All&quot;&gt;
+      &lt;packages&gt;
+          &lt;package name=&quot;testng.demo.*&quot;/&gt;
+      &lt;/packages&gt;
+  &lt;/test&gt;
+</pre></div>
+</div>
 </div>
 </div>
 

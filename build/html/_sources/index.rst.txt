@@ -13,6 +13,7 @@ Welcome to Personal Study's documentation!
    Python/index.rst
    Jenkins/index.rst
    Docker/index.rst
+   TestNG/index.rst
    RST/index.rst
 
 

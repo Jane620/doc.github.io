@@ -1,7 +1,5 @@
-testng测试相关
+TestNG框架
 ==========================
 
-
-:: .. toctree::
-
+.. toctree::
   基础.rst

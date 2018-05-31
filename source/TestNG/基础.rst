@@ -198,7 +198,7 @@ TestNG异常
   方法作为入参传入
   @Test
   @Parameters({"dbconfig","poolsize"})
-  public void xxx()
+  public void createConnection(String dbconfig, int poolsize){}
 
 @DataProvider定义提供的数据源，在测试引入数据源
 ::

@@ -31,7 +31,7 @@ TestNG下载和安装
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.10</version>
-	</dependency>
+ </dependency>
 
 
 基于Springboot的TestNG写法
@@ -144,6 +144,7 @@ TestNG异常
             <class name="testng.suite.TestOrder" />
         </classes>
     </test>
+
   只执行特定类的某个函数的
   <test name="order">
         <classes>
@@ -154,6 +155,7 @@ TestNG异常
                 </methods>
         </classes>
     </test>
+
   只执行类特定group
   <test name="order">
         <groups>
@@ -167,6 +169,7 @@ TestNG异常
             <class name="testng.suite.TestDatabases"/>
         </classes>
     </test>
+    
   只执行某个包下的所有测试类
   <test name="All">
         <packages>

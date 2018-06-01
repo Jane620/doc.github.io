@@ -34,12 +34,6 @@ TestNG下载和安装
  </dependency>
 
 
-基于Springboot的TestNG写法
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-因为springboot默认是提供了Junit的测试集成，因此如果需要采用TestNG则需要继承AbstractTransactionalTestNGSpringContextTests
-
-
 TestNG套件
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

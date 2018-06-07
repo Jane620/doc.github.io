@@ -26,16 +26,33 @@ Jenkins分布式构建
   groupadd jenkins
   useradd jenkins && passwd jenkins
 
-  安装必要工具 jdk,git,ant等
+  安装必要工具 jdk,git,ant，nginx等
   yum list jdk maven ant
   yum install java-1.8.0-openjdk
   yum install maven
   yum install ant
+  yum install nginx
 
   安装gradle
   下载全量包，并解压到对应的jenkins环境上，https://gradle.org/next-steps/?version=4.7&format=all
+  mv gradle-4.7 gradle
+  scp ...
+  mv gradle /usr/share/
+  ln -s /usr/share/gradle/bin/gradle /usr/bin/gradle
 
   安装jenkins数据源
   wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
   rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
   yum install jenkins
+
+  配置nginx ，将8080端口指向80
+  默认系统安装的config在/etc/nginx下
+  vi /etc/nginx/nginx.conf
+  修改location /{
+    proxy_pass http://127.0.0.1:8080;
+  }
+  nginx -s reload
+
+
+系统配置
+::

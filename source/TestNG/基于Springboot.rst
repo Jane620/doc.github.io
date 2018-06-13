@@ -24,7 +24,7 @@ Demo
 
     @Test(groups = "xxx")
     public void method1Test(){
-        methodService.method();
-        Assert.assertEquals(x,x);
+        String result = methodService.method();
+        Assert.assertEquals("xx",result);
     }
   }

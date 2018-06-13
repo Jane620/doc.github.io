@@ -12,4 +12,19 @@ Demo
 
 ::
 
-  
+  /**
+  * 需要继承AbstractTestNGSpringContextTests
+  * 同时指定配置文件ActiveProfiles
+  */
+  @SpringBootTest(classes = Application.class)
+  @ActiveProfiles("test")
+  public class MethodTestNGTest extends AbstractTestNGSpringContextTests{
+    @Autowired
+    private MethodService methodService;
+
+    @Test(groups = "xxx")
+    public void method1Test(){
+        methodService.method();
+        Assert.assertEquals(x,x);
+    }
+  }

@@ -3,7 +3,7 @@
 
   It is really my honor to have the opportunity for this interview. I hope I can make a good performance today. Let me introduce myself.
 
-  My name is wang jianfeng , now i'm living in wenyan. I'm working as a sw tester for 8 years.
+  My name is xxx, now i'm living in wenyan. I'm working as a sw tester for 8 years.
 
   I used to be a sw developer , so i'm very interest in software technology as a swdt . I learned Python and java . with scrapy framework to got informations from internet for company and springboot framework to offer some kind of api service.
 

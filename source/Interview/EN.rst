@@ -13,6 +13,7 @@
 
   In 2017 ,i went to nfspring , within one month i just take over the dealer trading system , design the automatic testcase and take responsible for this project. Also i built the continuous integeration by jenkins ,sonar ,jacoco,gerrit and so on. With ci to assessing SW quality and increasing test effectiveness and efficiency.
 
-  although i dont have much expericence in communication field , but i will learn hard and willing to accept challenge.
+
+  I got stuck and wanted to step out of this field .although i dont have much expericence in communication field , but i will learn hard . willing to accept challenges.
 
   That's all ,thank you.

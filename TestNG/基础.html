@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.1. TestNG基础 &mdash; Personal Study 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. reStructuredText基础" href="../RST/index.html" />
+    <link rel="prev" title="4. TestNG框架" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Personal Study
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Python/index.html">1. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jenkins/index.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docker/index.html">3. docker相关</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">4. TestNG框架</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. TestNG基础</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.1.1. 概述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.1.2. 特点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.1.3. TestNG下载和安装</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.1.4. TestNG套件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.1.5. TestNG异常</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.1.6. 忽略测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4.1.7. 超时测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">4.1.8. 分组测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">4.1.9. 套件测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">4.1.10. 参数化测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../RST/index.html">5. reStructuredText基础</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Personal Study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">4. TestNG框架</a> &raquo;</li>
+        
+      <li>4.1. TestNG基础</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/TestNG/基础.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testng">
+<h1>4.1. TestNG基础<a class="headerlink" href="#testng" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>4.1.1. 概述<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>测试框架,来源于Junit和Nunit，是一个开源自动化测试框架</p>
+</div>
+<div class="section" id="id2">
+<h2>4.1.2. 特点<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>注解</li>
+<li>TestNG使用Java和面向对象的功能</li>
+<li>支持综合类测试(例如，默认情况下，不用创建一个新的测试每个测试方法的类的实例)</li>
+<li>独立的编译时测试代码和运行时配置/数据信息</li>
+<li>灵活的运行时配置</li>
+<li>主要介绍“测试组”。当编译测试，只要要求TestNG运行所有的“前端”的测试，或“快”，“慢”，“数据库”等</li>
+<li>支持依赖测试方法，并行测试，负载测试，局部故障</li>
+<li>灵活的插件API</li>
+<li>支持多线程测试</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>4.1.3. TestNG下载和安装<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>基本都是采用直接在pom下引入依赖</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+                       <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="n">testng</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+                       <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">testng</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+                       <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">6.10</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>4.1.4. TestNG套件<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>创建一个testng.xml配置文件</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;suite name=&quot;TestAll&quot;&gt;
+  &lt;!-- Run test class --&gt;
+  &lt;test name=&quot;final&quot;&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;com.yiibai.TestSelenium&quot; /&gt;
+          &lt;class name=&quot;com.yiibai.TestGroup&quot; /&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+  &lt;!-- Run test method on group &quot;selenium&quot; only --&gt;
+  &lt;test name=&quot;selenium&quot;&gt;
+      &lt;groups&gt;
+          &lt;run&gt;
+              &lt;include name=&quot;selenium-test&quot; /&gt;
+          &lt;/run&gt;
+      &lt;/groups&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;com.yiibai.TestSelenium&quot; /&gt;
+          &lt;class name=&quot;com.yiibai.TestGroup&quot; /&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+&lt;/suite&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>4.1.5. TestNG异常<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>测试系统异常时候，可以定义具体捕获的异常
+当捕获异常时，测试通过，反之失败</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">TestException</span><span class="p">{</span>
+
+    <span class="nd">@Test</span><span class="p">(</span><span class="n">expectedExceptions</span> <span class="o">=</span> <span class="n">ArithmeticException</span><span class="o">.</span><span class="n">class</span><span class="p">)</span>
+    <span class="n">public</span> <span class="n">void</span> <span class="n">DivisionWithException</span><span class="p">(){</span>
+         <span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">;</span>
+         <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;i is:&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>4.1.6. 忽略测试<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>通过注解配置false，让该测试用例不执行，因为可能代码未完成或者存在问题
+默认&#64;Test即为True</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="n">false</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>4.1.7. 超时测试<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>通过&#64;Test(timeOut = 5000)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">TimeOut</span> <span class="p">{</span>
+
+  <span class="nd">@Test</span><span class="p">(</span><span class="n">timeOut</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">)</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">timeOut1</span><span class="p">()</span> <span class="n">throws</span> <span class="n">InterruptedException</span><span class="p">{</span>
+      <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">4000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Test</span><span class="p">(</span><span class="n">timeOut</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">)</span>
+  <span class="n">public</span> <span class="n">void</span> <span class="n">timeOut2</span><span class="p">()</span> <span class="n">throws</span> <span class="n">InterruptedException</span><span class="p">{</span>
+      <span class="n">Thread</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">6000</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>4.1.8. 分组测试<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>方法分组和类分组</p>
+<ul class="simple">
+<li>通过注解&#64;Test(groups=”“) ,&#64;BeforeGroups ,&#64;AfterGroups,&#64;Test(dependsOnGroups ={“”,”“})进行测试用例的方法分组</li>
+<li>通过在类上添加注解&#64;Test(groups=”“)，以及创建testng.xml ,定义classes则运行类，groups则运行对应类中的分组</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">&#64;Test(groups=”“)，通过groups = xx进行测试用例的分组
+&#64;BeforeGroups 和 &#64;AfterGroups 可以在整个分组前进行执行
+&#64;Test(dependsOnGroups ={“”,”“}) 则依赖其他groups执行完成后才执行</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>4.1.9. 套件测试<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>通过定义多个testng.xml来规划不同的执行目的</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>常见的:
+&lt;!--order测试类--&gt;
+  &lt;test name=&quot;order&quot;&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;testng.suite.TestConfig&quot; /&gt;
+          &lt;class name=&quot;testng.suite.TestOrder&quot; /&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+
+只执行特定类的某个函数的
+&lt;test name=&quot;order&quot;&gt;
+      &lt;classes&gt;
+          &lt;class name=&quot;testng.suite.TestOrder&quot; /&gt;
+              &lt;methods&gt;
+                  &lt;include name=&quot;testUpdateOrder&quot; /&gt;
+                  &lt;exclude name=&quot;testFindOrder&quot; /&gt;
+              &lt;/methods&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+
+只执行类特定group
+&lt;test name=&quot;order&quot;&gt;
+      &lt;groups&gt;
+          &lt;run&gt;
+              &lt;exclude name=&quot;brokenTests&quot; /&gt;
+              &lt;include name=&quot;db-nosql&quot; /&gt;
+          &lt;/run&gt;
+      &lt;/groups&gt;
+
+      &lt;classes&gt;
+          &lt;class name=&quot;testng.suite.TestDatabases&quot;/&gt;
+      &lt;/classes&gt;
+  &lt;/test&gt;
+
+只执行某个包下的所有测试类
+&lt;test name=&quot;All&quot;&gt;
+      &lt;packages&gt;
+          &lt;package name=&quot;testng.demo.*&quot;/&gt;
+      &lt;/packages&gt;
+  &lt;/test&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>4.1.10. 参数化测试<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>目前TestNG有两种方式：&#64;Parameters 和 &#64;DataProvider</p>
+<p>&#64;Parameters通过读取xml中配置的参数传入测试方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">配置参数</span>
+<span class="o">&lt;</span><span class="n">test</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;example1&quot;</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">parameter</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dbconfig&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;db.properties&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="n">parameter</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;poolsize&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;10&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;</span><span class="n">classes</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="k">class</span> <span class="nc">name</span><span class="o">=</span><span class="s2">&quot;testng.args.TestParameterXML&quot;</span> <span class="o">/&gt;</span>
+      <span class="o">&lt;/</span><span class="n">classes</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">test</span><span class="o">&gt;</span>
+<span class="n">方法作为入参传入</span>
+<span class="nd">@Test</span>
+<span class="nd">@Parameters</span><span class="p">({</span><span class="s2">&quot;dbconfig&quot;</span><span class="p">,</span><span class="s2">&quot;poolsize&quot;</span><span class="p">})</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">createConnection</span><span class="p">(</span><span class="n">String</span> <span class="n">dbconfig</span><span class="p">,</span> <span class="nb">int</span> <span class="n">poolsize</span><span class="p">){}</span>
+</pre></div>
+</div>
+<p>&#64;DataProvider定义提供的数据源，在测试引入数据源</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">引入数据源</span>
+<span class="nd">@DataProvider</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dateprovider&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">Object</span><span class="p">[][]</span> <span class="n">provideData</span><span class="p">(){</span>
+      <span class="n">Object</span><span class="p">[][]</span> <span class="n">params</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Object</span><span class="p">[][]{{</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">},{</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">},{</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">}};</span>
+      <span class="k">return</span> <span class="n">params</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="nd">@Test</span><span class="p">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s2">&quot;dateprovider&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">dataProvideTest</span><span class="p">(</span><span class="nb">int</span> <span class="n">number</span><span class="p">,</span> <span class="nb">int</span> <span class="n">expect</span><span class="p">){}</span>
+</pre></div>
+</div>
+<p>&#64;DataProvider还能根据函数来提供不同的数据源</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">根据不同函数名引入不同数据源</span>
+<span class="nd">@DataProvider</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dateprovider&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">Object</span><span class="p">[][]</span> <span class="n">provideData</span><span class="p">(</span><span class="n">Method</span> <span class="n">method</span><span class="p">){</span>
+      <span class="n">Object</span><span class="p">[][]</span> <span class="n">params</span> <span class="o">=</span> <span class="n">null</span><span class="p">;</span>
+      <span class="n">String</span> <span class="n">methodName</span> <span class="o">=</span> <span class="n">Method</span><span class="o">.</span><span class="n">getName</span><span class="p">();</span>
+      <span class="n">switch</span> <span class="p">(</span><span class="n">MethodName</span><span class="p">){</span>
+          <span class="n">case</span> <span class="s2">&quot;test1&quot;</span><span class="p">:</span>
+              <span class="n">result</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Object</span><span class="p">[][]{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">},{</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">}};</span>
+              <span class="k">break</span><span class="p">;</span>
+          <span class="n">case</span> <span class="s2">&quot;test2&quot;</span><span class="p">:</span>
+              <span class="n">result</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Object</span><span class="p">[][]{{</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;1&quot;</span><span class="p">},{</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">}};</span>
+              <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Test</span><span class="p">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s2">&quot;dataProvideMethod&quot;</span><span class="p">)</span>
+    <span class="n">public</span> <span class="n">void</span> <span class="n">test1</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="nb">int</span> <span class="n">expect</span><span class="p">){</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">expect</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="nd">@Test</span><span class="p">(</span><span class="n">dataProvider</span> <span class="o">=</span> <span class="s2">&quot;dataProvideMethod&quot;</span><span class="p">)</span>
+    <span class="n">public</span> <span class="n">void</span> <span class="n">test2</span><span class="p">(</span><span class="n">String</span> <span class="nb">str</span><span class="p">,</span> <span class="n">String</span> <span class="n">expect</span><span class="p">){</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="n">expect</span><span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>&#64;DataProvider还能根据配置参数中group来区分数据源</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@DataProvider</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;dataProvideByGroup&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">Object</span><span class="p">[][]</span> <span class="n">dataProvide</span><span class="p">(</span><span class="n">ITestContext</span> <span class="n">iTestContext</span><span class="p">){</span>
+  <span class="o">......</span>
+  <span class="o">//</span><span class="n">获取的即为xml中include属性</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">String</span> <span class="n">group</span><span class="p">:</span><span class="n">iTestContext</span><span class="o">.</span><span class="n">getIncludedGroups</span><span class="p">()){}</span>
+<span class="p">}</span>
+
+<span class="n">TestNG</span><span class="o">.</span><span class="n">xml配置</span>
+<span class="o">&lt;</span><span class="n">groups</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">run</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="n">include</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;groupA&quot;</span><span class="o">/&gt;</span>
+              <span class="o">&lt;</span><span class="n">include</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;groupB&quot;</span><span class="o">/&gt;</span>
+          <span class="o">&lt;/</span><span class="n">run</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">groups</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../RST/index.html" class="btn btn-neutral float-right" title="5. reStructuredText基础" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="4. TestNG框架" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, jfwang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

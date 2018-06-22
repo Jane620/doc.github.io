@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1. reStructuredText语法 &mdash; Personal Study 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="5. reStructuredText基础" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Personal Study
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Python/index.html">1. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Jenkins/index.html">2. Jenkins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Docker/index.html">3. docker相关</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TestNG/index.html">4. TestNG框架</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">5. reStructuredText基础</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5.1. reStructuredText语法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rest">5.1.1. reST简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">5.1.2. 警告显示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.1.3. 图片展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.1.4. 加粗展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">5.1.5. 斜体展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.1.6. 等宽文字展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.1.7. 段落和引文展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">5.1.8. 代码展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">5.1.9. 链接展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">5.1.10. 特殊说明展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">5.1.11. 序列展示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">5.1.12. 表格展示</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Personal Study</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">5. reStructuredText基础</a> &raquo;</li>
+        
+      <li>5.1. reStructuredText语法</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/RST/语法.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="restructuredtext">
+<h1>5.1. reStructuredText语法<a class="headerlink" href="#restructuredtext" title="Permalink to this headline">¶</a></h1>
+<p>这一章节介绍reStructuredText (reST)的简介</p>
+<hr class="docutils" />
+<div class="section" id="rest">
+<h2>5.1.1. reST简介<a class="headerlink" href="#rest" title="Permalink to this headline">¶</a></h2>
+<p>reST 被认为是简单，实用的标记语言，因此学习它不会花太多时间.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h2>5.1.2. 警告显示<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is a warning part.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h2>5.1.3. 图片展示<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="../_images/test.jpg"><img alt="../_images/test.jpg" src="../_images/test.jpg" style="width: 12.0cm;" /></a>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id3">
+<h2>5.1.4. 加粗展示<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>this is small, <strong>this is bigger</strong></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id4">
+<h2>5.1.5. 斜体展示<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p><cite>this is level1</cite></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id5">
+<h2>5.1.6. 等宽文字展示<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">this</span> <span class="pre">is</span> <span class="pre">level2</span></code></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h2>5.1.7. 段落和引文展示<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>this is level2</p>
+<blockquote>
+<div>this is level3</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="id7">
+<h2>5.1.8. 代码展示<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id8">
+<h2>5.1.9. 链接展示<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>this is a <a class="reference external" href="http://www.baidu.com">links</a></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="id9">
+<h2>5.1.10. 特殊说明展示<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>this is context</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">word</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">another</span> <span class="n">word</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id10">
+<h2>5.1.11. 序列展示<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>this is 1</li>
+<li>this is 2</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="id11">
+<h2>5.1.12. 表格展示<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">coloumn0</th>
+<th class="head">coloumn1</th>
+<th class="head">coloumn2</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="5. reStructuredText基础" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, jfwang.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

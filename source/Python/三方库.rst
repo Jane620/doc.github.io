@@ -7,6 +7,7 @@ Python常用三方库介绍
 
 * Scrapy
 * Flask
+* paramiko
 
 安装
 ~~~~~~~~~~~~~~~~~~~~~
@@ -16,3 +17,8 @@ Python常用三方库介绍
 
   pip install scrapy
   pip install flask
+
+
+
+paramiko
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

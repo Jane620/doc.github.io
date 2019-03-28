@@ -2,3 +2,29 @@ Python3.6官方文档
 =========================
 
 目录
+
+
+
+
+特性
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+装饰器
+可以在不破坏原函数逻辑的基础上进行额外处理，例如下面就是增加输出函数处理时间
+::
+import time
+
+class Decorator:
+  def timing(f):
+      def wrap(*args):
+          t1 = time.time()
+          rest = f(*args)
+          time.sleep(2)
+          t2 = time.time()
+          print("time lasted: ",t2-t1)
+          return rest
+      return wrap
+
+  @pre_operator
+  def sayHi(self, name):
+      print("Hi, ",name)

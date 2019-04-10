@@ -17,8 +17,6 @@ Scope
 
 
 
-
-
 TESTCASE run
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sudo pybot -L trace -v G_MP_HOST:10.108.154.69 -t "Verify ABIL service startup" -d results suites
@@ -71,4 +69,17 @@ Verify ABIL service startup
 
 1. 几个服务 l1sw / l1sw-nrt /  autodetection 的启动命令或者方式  -- 硬件自动即启动服务
 2. 检查服务是否启动的标记只有这个 loaded / active
-3.
+
+
+
+单独执行本地的环境
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MR的description 中添加一句话,否则进去测试池中通跑
+OFFLINE_ENV 5gRobot110
+
+
+针对NE3S的注册
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+分为非TLS，和TLS的两种模式
+检查配置oamTls ,默认是forced ，则走的是HTTPS，即8443端口
+oamTls=off,则走HTTP，端口8080

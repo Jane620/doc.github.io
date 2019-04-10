@@ -28,3 +28,28 @@ class Decorator:
   @pre_operator
   def sayHi(self, name):
       print("Hi, ",name)
+
+
+
+lambda / filter /map
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+return filter(func,iterator) , 需要注意python3返回的是filter对象，即迭代器，根据惰性原理，因此比python2性能更好
+
+eg.
+
+dict_data = {"a":{"e":"1","f":"2"},"b":"2","c":"3"}
+
+def get_value(data_source, filter):
+    return data_source[filter].values()
+
+def is_value(value):
+    return value and value == "1"
+
+def filter_data(data_source,type):
+    return filter(lambda x: is_value(x) ,get_value(data_source,type))
+
+if __name__ == '__main__':
+    var1 = filter_data(dict_data,"a")
+    print(var1.__next__())  #1
+    print(var1.__next__())  #StopIteration

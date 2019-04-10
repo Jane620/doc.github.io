@@ -243,9 +243,10 @@ heat stack-create -f 5gbts_heat.yaml -e 5gbts_heat.env OAM_5G19_Stack26414
 python yaft.py -R -i 192.168.255.1 -z AirScaleASIK-4.311.297-R4-B4-NSA.zip
 python yaft.py -R --ignore_slaves -i 192.168.255.1 -z AirScale-0.135.472.zip --ask_for_password oZPS0POrRieRtu
 
-
+heat stack-create -f 5gbts_flavor.yaml flavor19b
 heat stack-delete OAM_5G19_Stack26414
 heat stack-create -f 5gbts_heat.yaml -e 5gbts_heat.env OAM_5G19_Stack26414
+openstack image create --public --disk-format=qcow2 --container-format=bare --file=AirFrameVirtualized-0.115.580.qcow2 5G19_0.115.580
 
 DU step:
 0. 对于A系列的板子，需要进行备份，记录fs1 && fs2
@@ -418,6 +419,10 @@ mount -o rw,remount /ffs/fs1
 mount -o rw,remount /ffs/fs2
 
 
+抓gnb的包
+-i 为对应的出入口 host则为需要过滤的ip
+sudo tcpdump -i enp0s25 host 10.108.240.197 -w dump.pcap
+
 wireshark
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 RRC 4/5 为CU-DU
@@ -439,10 +444,39 @@ L2LO,L2PS,L1DL,L1UL
 5GRAC
 L2Hi,TRSW
 
+疑问
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+vtk用途，和NE3S以及nbs的关系
+CU侧开8080，robot侧开8088
+netact
+NoMA
+tcpdump -i enp0s25 host 10.108.240.197 -w cu_side.pcap
+tcpdump -i host 10.108.154.54 -w du_side.pcap
+netstat -ntulp |grep 8080
+tar -xJvf Addons-4.2113.404.txz && tar zxvf HeatTemplates-AirFrame-config.tgz
 
-EU name
-/var/logs/last.0 /1 每重启则+1
+检查设备
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+traceroute target -T -P 8080
+telnet target 8080
+关闭防火墙 sudo ufw disable
 
 
 cp3+ac
 ac->testplan
+
+独立完成单个feature测试
+
+1. 如何找feature
+
+2. 定schedule
+目前基本所有任务都在一个FB内完成，所以对于太大的，需要进行拆分
+3. 等待CP3完成后准备testplan
+testplan模板进行填写case
+
+
+
+FB4
+1187-c   1905 open
+1427-A-a 1905 plan
+716      1905 plan     719-9/1/14/12   testplan/manul && TA for 9/1

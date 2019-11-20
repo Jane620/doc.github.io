@@ -1,8 +1,0 @@
-
-
-
-
-Parameter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-dlMimoMode: This parameter selects the DL MIMO mode for the PDSCH.

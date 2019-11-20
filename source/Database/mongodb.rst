@@ -6,8 +6,6 @@ Mongodb基础
 mongodb是一个NoSQL
 
 
-
-
 Java调用
 ~~~~~~~~~~~~~~~~~~~~~~
 

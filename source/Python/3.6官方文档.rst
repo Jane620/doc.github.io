@@ -4,8 +4,6 @@ Python3.6官方文档
 目录
 
 
-
-
 特性
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -53,3 +51,16 @@ if __name__ == '__main__':
     var1 = filter_data(dict_data,"a")
     print(var1.__next__())  #1
     print(var1.__next__())  #StopIteration
+
+
+ 内置函数
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ __slots__
+ 可以限制定义class过程中，可以添加的属性
+ class Student:
+    __slots__ = ('name','aga')
+
+s = Student()
+s.name = 'a'
+s.age = 'b'
+s.score = 11 (will raise error)

@@ -31,6 +31,18 @@ sshpass -p passwd ssh username@ip "echo xxx"
 groupadd sct
 useradd -d /home/sct -g sct -m sct -s /bin/bash
 
+删除出特定文件或文件外的文件
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+例如删除目录下除SW_files的其他文件
+rm -fr !(SW_files)
+
+
+linuxPC机关闭盖子不休眠
+~~~~~~~~~~~
+sudo vi /etc/systemd/logind.conf
+change value  HandleLidSwitch=ignore
+sudo systemctl restart systemd-logind
+
 
 linux交互中输入通过脚本预设
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
